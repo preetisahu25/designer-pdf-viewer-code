@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+int main() {
+    vector<int> heights(26);
+    cout << "Enter 26 space-separated heights for each letter (a-z):\n";
+    for (int i = 0; i < 26; i++) {
+        cin >> heights[i];
+    }
+
+    string word;
+    cout << "Enter the word: ";
+    cin >> word;
+
+    int maxHeight = 0;
+
+    for (char c : word) {
+        int index = c - 'a';
+        maxHeight = max(maxHeight, heights[index]);
+    }
+
+    int area = maxHeight * word.length();
+    cout << "Area of highlighted rectangle: " << area << endl;
+
+    return 0;
+}
